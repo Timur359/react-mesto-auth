@@ -1,3 +1,5 @@
+const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || '//localhost:3000'}`;
+
 export default class Api {
  constructor({ baseUrl, headers }) {
   this._baseUrl = baseUrl;
@@ -96,7 +98,7 @@ export default class Api {
 }
 
 export const api = new Api({
- baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-32',
+ baseUrl: BASE_URL,
  headers: {
   authorization: '83e879e9-0475-4904-b282-74d56e03a778',
   'Content-Type': 'application/json',
