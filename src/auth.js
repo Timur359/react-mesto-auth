@@ -1,6 +1,6 @@
 //export const BASE_URL = 'https://auth.nomoreparties.co';
 
-export const BASE_URL = 'https://api.express.mesto.nomoredomains.work'
+export const BASE_URL = `${window.location.protocol}api.express.mesto.nomoredomains.work`
 
 const handleOriginalResponse = (res) => {
  return res.ok
