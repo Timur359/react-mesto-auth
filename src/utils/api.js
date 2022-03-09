@@ -96,7 +96,7 @@ export default class Api {
 }
 
 export const api = new Api({
- baseUrl: 'https://express.mesto.nomoredomains.work',
+ baseUrl: 'https://api.express.mesto.nomoredomains.work',
  headers: {
   'Content-Type': 'application/json',
  },
