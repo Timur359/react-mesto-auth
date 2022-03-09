@@ -1,5 +1,3 @@
-const BASE_URL = `https://${process.env.REACT_APP_API_URL || '//localhost:3000'}`;
-
 export default class Api {
  constructor({ baseUrl, headers }) {
   this._baseUrl = baseUrl;
@@ -98,7 +96,7 @@ export default class Api {
 }
 
 export const api = new Api({
- baseUrl: BASE_URL,
+ baseUrl: 'https://express.mesto.nomoredomains.work',
  headers: {
   'Content-Type': 'application/json',
  },
