@@ -1,5 +1,4 @@
 const token = localStorage.getItem("token");
-console.log(token)
 
 export default class Api {
  constructor({ baseUrl, headers }) {
@@ -13,6 +12,7 @@ export default class Api {
  //Получение информации о пользователе
 
  getUserData() {
+  console.log(token)
   return fetch(this._userUrl, {
    headers: this._headers,
   }).then(this._checkResponse);
