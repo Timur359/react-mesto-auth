@@ -1,3 +1,5 @@
+const token = localStorage.getItem("token");
+
 export default class Api {
  constructor({ baseUrl, headers }) {
   this._baseUrl = baseUrl;
@@ -98,6 +100,7 @@ export default class Api {
 export const api = new Api({
  baseUrl: 'https://api.express.mesto.nomoredomains.work',
  headers: {
+  authorization: token,
   'Content-Type': 'application/json',
  },
 });
