@@ -12,7 +12,6 @@ export default class Api {
  //Получение информации о пользователе
 
  getUserData() {
-  console.log(token)
   return fetch(this._userUrl, {
    headers: this._headers,
   }).then(this._checkResponse);
@@ -97,6 +96,8 @@ export default class Api {
   return res.json();
  }
 }
+
+console.log(token)
 
 export const api = new Api({
  baseUrl: 'https://api.express.mesto.nomoredomains.work',
