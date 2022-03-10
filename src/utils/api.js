@@ -102,7 +102,8 @@ console.log(token)
 export const api = new Api({
  baseUrl: 'https://api.express.mesto.nomoredomains.work',
  headers: {
-  authorization: token,
-  'Content-Type': 'application/json',
+    Accept: "application/json",
+    authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    "Content-Type": "application/json",
  },
 });
