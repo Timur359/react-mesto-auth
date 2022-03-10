@@ -3,9 +3,9 @@
 export const BASE_URL = 'https://api.express.mesto.nomoredomains.work'
 
 const handleOriginalResponse = (res) => {
- return res.ok
-  ? res.json()
-  : Promise.reject(new Error(`Ошибка ${res.status}: ${res.statusText}`));
+  return res.json().then((json) => {
+    return res.ok ? json : Promise.reject(json)
+  })
 };
 
 const headers = {
@@ -13,27 +13,27 @@ const headers = {
 };
 
 export const register = ({ email, password }) => {
- return fetch(`${BASE_URL}/signup`, {
+ fetch(`${BASE_URL}/signup`, {
   method: 'POST',
   headers,
   body: JSON.stringify({ email, password }),
- }).then(handleOriginalResponse);
+ }).then((res)=> handleOriginalResponse(res));
 };
 
 export const authorize = ({ email, password }) => {
- return fetch(`${BASE_URL}/signin`, {
+ fetch(`${BASE_URL}/signin`, {
   method: 'POST',
   headers,
   body: JSON.stringify({ email, password }),
- }).then(handleOriginalResponse);
+ }).then((res)=> handleOriginalResponse(res));
 };
 
 export const checkToken = (token) => {
- return fetch(`${BASE_URL}/users/me`, {
+ fetch(`${BASE_URL}/users/me`, {
   method: 'GET',
   headers: {
    ...headers,
    Authorization: `Bearer ${token}`,
   },
- }).then(handleOriginalResponse);
+ }).then((res)=> handleOriginalResponse(res));
 };
