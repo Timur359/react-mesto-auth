@@ -1,4 +1,5 @@
 const token = localStorage.getItem("token");
+console.log(token)
 
 export default class Api {
  constructor({ baseUrl, headers }) {
