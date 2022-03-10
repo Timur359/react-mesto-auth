@@ -1,4 +1,4 @@
-const token = localStorage.getItem("token");
+const token = localStorage.getItem("jwt");
 
 export default class Api {
  constructor({ baseUrl, headers }) {
