@@ -52,15 +52,6 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
 
-  React.useEffect(() => {
-    Promise.all([api.getUserData(), api.getInitialCards()])
-      .then(([data, card]) => {
-        setCurrentUser(data);
-        setCards(card);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
   const handleUpdateUser = (name) => {
     api
       .saveUserChanges(name)
@@ -213,8 +204,14 @@ function App() {
   React.useEffect(() => {
     if (isLoggedIn) {
       history.push("/Mesto_React");
+      Promise.all([api.getUserData(), api.getInitialCards()])
+      .then(([data, card]) => {
+        setCurrentUser(data);
+        setCards(card);
+      })
+      .catch((err) => console.log(err));
     }
-  }, [isLoggedIn]);
+  }, [history, isLoggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
