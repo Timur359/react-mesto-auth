@@ -65,7 +65,6 @@ function App() {
     api
       .saveUserChanges(name)
       .then((res) => {
-        console.log(res);
         setCurrentUser(res);
         closeAllPopups();
       })
