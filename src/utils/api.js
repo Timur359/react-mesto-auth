@@ -6,6 +6,13 @@ export default class Api {
     this._headers = headers;
   }
 
+  setToken(token) {
+    this._headers = {
+      ...this._headers,
+      Authorization: `Bearer ${token}`,
+    }
+  }
+
   //Получение информации о пользователе
 
   getUserData() {
@@ -99,7 +106,6 @@ export default class Api {
 export const api = new Api({
   baseUrl: "https://api.express.mesto.nomoredomains.work",
   headers: {
-    authorization: `Bearer ${localStorage.getItem("jwt")}`,
     "Content-Type": "application/json",
   },
 });

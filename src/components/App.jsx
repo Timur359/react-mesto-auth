@@ -134,12 +134,12 @@ function App() {
   const [email, setEmail] = React.useState("");
 
   const tokenCheck = () => {
-    const jwt = localStorage.getItem("jwt");
-    if (!jwt) {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
       return;
     }
     auth
-      .checkToken(jwt)
+      .checkToken(token)
       .then((res) => {
         setEmail(res.email);
         setIsLoggedIn(true);
@@ -202,8 +202,10 @@ function App() {
   }, []);
 
   React.useEffect(() => {
+    const token = localStorage.getItem('jwt')
     if (isLoggedIn) {
       history.push("/Mesto_React");
+      api.setToken(token)
       Promise.all([api.getUserData(), api.getInitialCards()])
       .then(([data, card]) => {
         setCurrentUser(data);
@@ -246,7 +248,7 @@ function App() {
             {isLoggedIn ? (
               <Redirect to="/Mesto_React" />
             ) : (
-              <Redirect to="/sign-up" />
+              <Redirect to="/sign-in" />
             )}
           </Route>
         </Switch>
