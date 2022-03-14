@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run predeploy && scp -r ./build/* timur@84.252.137.26:/home/timur/react-mesto-auth"
+    "deploy": "npm run predeploy && scp -r ./build/* timur@62.84.122.32:/home/timur/react-mesto-auth"
   },
   "eslintConfig": {
     "extends": [
